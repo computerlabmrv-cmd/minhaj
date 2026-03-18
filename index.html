@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>എന്റെ പേഴ്സണൽ വെബ്സൈറ്റ്</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Noto Sans Malayalam', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        nav a {
+            margin-left: 30px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #667eea;
+        }
+        
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding-top: 60px;
+        }
+        
+        .hero-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .section {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .section:nth-child(even) {
+            background: #f9f9f9;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            color: #333;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .profile-img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .skill-tag {
+            background: #667eea;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9em;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-img {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2em;
+        }
+        
+        .project-info {
+            padding: 20px;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        .social-links {
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5em;
+            text-decoration: none;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav a {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">എന്റെ പേഴ്സണൽ സൈറ്റ്</div>
+            <nav>
+                <a href="#home">ഹോം</a>
+                <a href="#about">എന്നെക്കുറിച്ച്</a>
+                <a href="#projects">പ്രോജക്ടുകൾ</a>
+                <a href="#contact">ബന്ധപ്പെടുക</a>
+            </nav>
+        </div>
+    </header>
+    
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>ഹായ്, ഞാൻ [നിങ്ങളുടെ പേര്]</h1>
+            <p>ഒരു വെബ് ഡെവലപ്പറും ഡിസൈനറും</p>
+            <a href="#contact" class="btn">എന്നെ ബന്ധപ്പെടുക</a>
+        </div>
+    </section>
+    
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">എന്നെക്കുറിച്ച്</h2>
+            <div class="about-content">
+                <img src="https://via.placeholder.com/300" alt="Profile" class="profile-img">
+                <div class="about-text">
+                    <h3>ആരാണ് ഞാൻ?</h3>
+                    <p>ഞാൻ ഒരു പാഷണേറ്റ് വെബ് ഡെവലപ്പറാണ്. ബ്യൂട്ടിഫുൾ, ഫങ്ഷണൽ വെബ്സൈറ്റുകൾ ക്രിയേറ്റ് ചെയ്യാൻ എനിക്ക് ഇഷ്ടമാണ്. 5 വർഷത്തിലേറെ പരിചയസമ്പത്തുള്ള ഞാൻ, വിവിധ തരം പ്രോജക്ടുകളിൽ പ്രവർത്തിച്ചിട്ടുണ്ട്.</p>
+                    <p>എന്റെ യാത്ര ആരംഭിച്ചത് ഒരു ഹോബി ആയിട്ടാണ്, ഇപ്പോൾ ഇത് എന്റെ ജീവിതമാണ്. പുതിയ ടെക്നോളജികൾ പഠിക്കാനും, ക്രിയേറ്റീവ് ഐഡിയകൾ റിയാലിറ്റി ആക്കാനും ഞാൻ ഇഷ്ടപ്പെടുന്നു.</p>
+                    
+                    <div class="skills">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Python</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">എന്റെ പ്രോജക്ടുകൾ</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">📱</div>
+                    <div class="project-info">
+                        <h3>പ്രോജക്ട് 1</h3>
+                        <p>ഒരു മൊബൈൽ ആപ്പ് ഡിസൈൻ. യൂസർ ഫ്രണ്ട്ലി ഇന്റർഫേസ്.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">💻</div>
+                    <div class="project-info">
+                        <h3>പ്രോജക്ട് 2</h3>
+                        <p>ഒരു വെബ് ആപ്ലിക്കേഷൻ. റിയൽ ടൈം ഡാറ്റ അനാലിസിസ്.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">🎨</div>
+                    <div class="project-info">
+                        <h3>പ്രോജക്ട് 3</h3>
+                        <p>ഒരു ക്രിയേറ്റീവ് പോർട്ട്ഫോളിയോ വെബ്സൈറ്റ്.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">ബന്ധപ്പെടുക</h2>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <input type="text" placeholder="നിങ്ങളുടെ പേര്" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="നിങ്ങളുടെ ഇമെയിൽ" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="വിഷയം">
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="5" placeholder="നിങ്ങളുടെ സന്ദേശം" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">സന്ദേശം അയക്കുക</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 [നിങ്ങളുടെ പേര്]. എല്ലാ അവകാശങ്ങളും നിക്ഷിപ്തം.</p>
+            <div class="social-links">
+                <a href="#">📘</a>
+                <a href="#">🐦</a>
+                <a href="#">📷</a>
+                <a href="#">💼</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
